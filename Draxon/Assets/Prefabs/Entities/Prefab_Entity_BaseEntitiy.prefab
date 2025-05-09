@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7812144590990880607}
   - component: {fileID: 4264323857459853922}
   m_Layer: 0
-  m_Name: BaseEntitiy
+  m_Name: Prefab_Entity_BaseEntitiy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
