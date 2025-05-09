@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 
 namespace Entities.Combat
 {
-    public abstract class Health : MonoBehaviour
+    public class Health : MonoBehaviour
     {
         private float _maxHealth;
         private float _currentHealth;
+
+        public event Action Die;
         
         public void Init(float maxHealth)
         {
@@ -17,9 +20,12 @@ namespace Entities.Combat
         {
             _currentHealth -= damage;
             
-            if (_currentHealth <= 0) KillEntity();
+            if (_currentHealth <= 0) Die?.Invoke();
         }
 
-        protected abstract void KillEntity();
+        public void ResetHealth()
+        {
+            _currentHealth = _maxHealth;
+        }
     }
 }

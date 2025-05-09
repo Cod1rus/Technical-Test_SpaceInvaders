@@ -12,9 +12,11 @@ namespace Entities
         [SerializeField] private EntityConfig _config;
         public EntityConfig Config => _config;
         
-        private void Awake()
+        protected virtual void Start()
         {
             ComponentsHandler = GetComponent<ComponentsHandler>();
+            ComponentsHandler.FindReferences();
+            
             Health.Init(_config.Health);
         }
     }
