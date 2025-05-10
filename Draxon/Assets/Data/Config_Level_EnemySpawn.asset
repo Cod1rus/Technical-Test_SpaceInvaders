@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea49e2d20574323abf6c755011a6466, type: 3}
-  m_Name: Config_Entity_Player
+  m_Script: {fileID: 11500000, guid: 5f60472c9ada45c594af12f707f9ce14, type: 3}
+  m_Name: Config_Level_EnemySpawn
   m_EditorClassIdentifier: 
-  _health: 10
-  _moveSpeed: 20
-  _damage: 1
+  enemiesToSpawn:
+  - {fileID: -2572819411675723657, guid: b253774d023201c44a8e3c9f2a26c491, type: 3}
+  spawnDelay: 5
