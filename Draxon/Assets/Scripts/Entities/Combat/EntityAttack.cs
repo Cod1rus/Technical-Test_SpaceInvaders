@@ -4,14 +4,11 @@ namespace Entities.Combat
 {
     public class EntityAttack : MonoBehaviour
     {
-        public void Init()
-        {
-            
-        }
-        
+        [SerializeField] private Projectile _projectile;
         public void Attack(float damage)
         {
-            
+            var projectile = Instantiate(_projectile);
+            Destroy(projectile, 10f);
         }
     }
 }

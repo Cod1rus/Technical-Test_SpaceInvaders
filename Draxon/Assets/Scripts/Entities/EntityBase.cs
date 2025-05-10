@@ -11,6 +11,9 @@ namespace Entities
         [SerializeField] private Health _health;
         public Health Health => _health; 
         
+        [SerializeField] private EntityAttack _attack;
+        public EntityAttack EntityAttack => _attack; 
+        
         [SerializeField] private EntityConfig _config;
         public EntityConfig Config => _config;
         
