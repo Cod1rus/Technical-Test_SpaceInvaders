@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2686974987713468169}
@@ -118,7 +118,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 111597471329040248, guid: 465611e3dad992745bd81ef6de0ece43, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Prefab_Entity_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163389610917071393, guid: 465611e3dad992745bd81ef6de0ece43, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163389610917071393, guid: 465611e3dad992745bd81ef6de0ece43, type: 3}
+      propertyPath: m_Size.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7177739031859503161, guid: 465611e3dad992745bd81ef6de0ece43, type: 3}
       propertyPath: m_LocalPosition.x
@@ -168,7 +176,7 @@ PrefabInstance:
       addedObject: {fileID: 880250230040878513}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 111597471329040248, guid: 465611e3dad992745bd81ef6de0ece43, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 4377349371529402230}
     - targetCorrespondingSourceObject: {fileID: 111597471329040248, guid: 465611e3dad992745bd81ef6de0ece43, type: 3}
       insertIndex: -1

@@ -23,7 +23,7 @@ namespace Utils
         }
 
         
-        public void FindReferences()
+        private void FindReferences()
         {
             if (_components != null) _components.Clear();
             else _components = new Dictionary<Type, MonoBehaviour>();

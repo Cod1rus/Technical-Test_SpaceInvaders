@@ -16,7 +16,6 @@ namespace Entities
         protected virtual void Start()
         {
             ComponentsHandler = GetComponent<ComponentsHandler>();
-            ComponentsHandler.FindReferences();
             
             Health.Init(_config.Health);
         }

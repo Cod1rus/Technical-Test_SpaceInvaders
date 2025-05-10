@@ -1,3 +1,4 @@
+using Manager;
 using UnityEngine;
 
 namespace Entities
@@ -17,10 +18,15 @@ namespace Entities
 
         private void Move(Vector2 move)
         {
-            transform.position = new Vector3(
-                transform.position.x + move.x * _moveSpeed * Time.deltaTime,
-                transform.position.y,
-                transform.position.z + move.y * _moveSpeed * Time.deltaTime);
+            var currentPosition = transform.position;
+            var newPosition = new Vector3(
+                currentPosition.x + move.x * _moveSpeed * Time.deltaTime,
+                currentPosition.y,
+                currentPosition.z + move.y * _moveSpeed * Time.deltaTime);
+
+            if (!LevelManager.Instance.LevelBounds.IsInBounds(newPosition)) return;
+            
+            transform.position = newPosition;
         }
         
         public void SetMovementDirection(Vector2 direction)
@@ -33,7 +39,5 @@ namespace Entities
             if (_movementDirection != Vector2.zero)
                 Move(_movementDirection);
         }
-
-        
     }
 }
