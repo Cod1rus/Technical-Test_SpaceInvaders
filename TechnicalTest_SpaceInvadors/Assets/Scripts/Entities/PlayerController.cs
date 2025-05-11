@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 using Utils;
 
 namespace Entities
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : EntityController
     {
         private Player _player;
         private ComponentsHandler _componentsHandler;
@@ -23,8 +22,9 @@ namespace Entities
             _player.InputReader.MoveCancelled += StopMoving;
 
             _player.InputReader.Shoot += Attack;
-        }
 
+            _player.Health.Die += Die;
+        }
         private void OnDestroy()
         {
             if (_player.InputReader)
@@ -33,12 +33,14 @@ namespace Entities
                 _player.InputReader.MoveCancelled -= StopMoving;
 
                 _player.InputReader.Shoot -= Attack;
+                
+                _player.Health.Die -= Die;
             }
         }
 
         private void Attack()
         {
-            if (!(_lastAttackTime + _player.Config.AttackDelay < Time.time)) return;
+            if (_lastAttackTime + _player.Config.AttackDelay > Time.time) return;
             
             _lastAttackTime = Time.time;
             _player.EntityAttack.Attack(_player.Config.Damage);
@@ -52,6 +54,11 @@ namespace Entities
         private void StopMoving()
         {
             _movement.SetMovementDirection(Vector2.zero);
+        }
+        
+        private void Die()
+        {
+            Destroy(gameObject);
         }
     }
 }
