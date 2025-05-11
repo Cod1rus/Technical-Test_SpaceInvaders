@@ -49,5 +49,10 @@ namespace Input
                     break;
             }
         }
+
+        void PlayerInput.IGameplayActions.OnShoot(InputAction.CallbackContext context)
+        {
+            if (context.performed) Shoot?.Invoke();
+        }
     }
 }

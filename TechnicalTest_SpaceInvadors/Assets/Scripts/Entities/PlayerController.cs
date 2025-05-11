@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Utils;
 
@@ -8,6 +9,8 @@ namespace Entities
         private Player _player;
         private ComponentsHandler _componentsHandler;
         private MovementController _movement;
+
+        private float _lastAttackTime;
         
         private void Start()
         {
@@ -18,6 +21,27 @@ namespace Entities
             
             _player.InputReader.Move += MoveInput;
             _player.InputReader.MoveCancelled += StopMoving;
+
+            _player.InputReader.Shoot += Attack;
+        }
+
+        private void OnDestroy()
+        {
+            if (_player.InputReader)
+            {
+                _player.InputReader.Move -= MoveInput;
+                _player.InputReader.MoveCancelled -= StopMoving;
+
+                _player.InputReader.Shoot -= Attack;
+            }
+        }
+
+        private void Attack()
+        {
+            if (!(_lastAttackTime + _player.Config.AttackDelay < Time.time)) return;
+            
+            _lastAttackTime = Time.time;
+            _player.EntityAttack.Attack(_player.Config.Damage);
         }
         
         private void MoveInput(Vector2 move)

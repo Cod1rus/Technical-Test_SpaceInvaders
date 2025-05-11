@@ -8,7 +8,8 @@ namespace Entities.Combat
         public void Attack(float damage)
         {
             var projectile = Instantiate(_projectile);
-            Destroy(projectile, 10f);
+            projectile.Damage = damage;
+            Destroy(projectile.gameObject, 3f);
         }
     }
 }

@@ -28,6 +28,7 @@ namespace Entities
         {
             ComponentsHandler = GetComponent<ComponentsHandler>();
             _health = ComponentsHandler.Get<Health>();
+            _attack = ComponentsHandler.Get<EntityAttack>();
         }
 #endif
     }
