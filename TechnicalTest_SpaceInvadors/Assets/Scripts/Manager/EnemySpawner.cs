@@ -66,6 +66,7 @@ namespace Manager
             void EnemyDied()
             {
                 enemy.Health.Die -= EnemyDied;
+                Destroy(enemy.gameObject);
                 _activeEnemyToSpawnPointMapping.Remove(spawnPoint);
             }
         }

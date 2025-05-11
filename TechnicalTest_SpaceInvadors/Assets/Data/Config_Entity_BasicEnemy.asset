@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea49e2d20574323abf6c755011a6466, type: 3}
   m_Name: Config_Entity_BasicEnemy
   m_EditorClassIdentifier: 
-  _health: 10
+  _health: 1
   _moveSpeed: 10
   _damage: 1
+  _attackDelay: 2
