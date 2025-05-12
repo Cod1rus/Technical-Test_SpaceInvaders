@@ -25,6 +25,7 @@ namespace Entities
 
             _player.Health.Die += Die;
         }
+        
         private void OnDestroy()
         {
             if (_player.InputReader)
@@ -55,8 +56,8 @@ namespace Entities
         {
             _movement.SetMovementDirection(Vector2.zero);
         }
-        
-        private void Die()
+
+        protected override void Die()
         {
             Destroy(gameObject);
         }

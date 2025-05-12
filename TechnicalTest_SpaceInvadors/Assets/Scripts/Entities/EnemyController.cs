@@ -1,23 +1,33 @@
 ﻿using UnityEngine;
+using Utils;
 
 namespace Entities
 {
     public class EnemyController : EntityController
     {
         private EntityBase _entityBase;
+        private ComponentsHandler _componentsHandler;
+        
         private float _lastAttackTime;
         
-        private void Awake()
+        private MovementController _movement;
+        
+        private void Start()
         {
-            _entityBase = GetComponent<EntityBase>();
+            _componentsHandler = GetComponent<ComponentsHandler>();
+            _movement = _componentsHandler.Get<MovementController>();
+            _entityBase = _componentsHandler.Get<Enemy>();
 
             _entityBase.Health.Die += Die;
+            
+            _movement.SetMovementDirection(transform.forward);
         }
 
         private void FixedUpdate()
         {
             Attack();
         }
+
 
         private void Attack()
         {
