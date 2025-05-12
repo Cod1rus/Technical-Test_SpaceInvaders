@@ -20,7 +20,7 @@ namespace Entities
 
             _entityBase.Health.Die += Die;
             
-            _movement.SetMovementDirection(transform.forward);
+            _movement.SetMovementDirection(new Vector2(0, -1));
         }
 
         private void FixedUpdate()

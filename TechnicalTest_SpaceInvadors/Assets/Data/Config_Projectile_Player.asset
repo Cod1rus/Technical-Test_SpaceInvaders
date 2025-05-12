@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fb37cbfbb54001bbe3b8afc2e5deb2, type: 3}
   m_Name: Config_Projectile_Player
   m_EditorClassIdentifier: 
-  _moveSpeed: 10
+  _moveSpeed: 12
